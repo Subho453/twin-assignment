@@ -35,12 +35,16 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Row>
+        <Row gutter={[20, 20]}>
           <Col md={6} xs={24}>
             <Menu
               onClick={onClick}
               selectedKeys={[current]}
-              mode={window.innerWidth < 768 ? "horizontal" : "vertical"}
+              mode={
+                window.innerWidth < 768 && window.innerWidth > 360
+                  ? "horizontal"
+                  : "vertical"
+              }
               items={items}
             />
           </Col>
@@ -48,11 +52,11 @@ function App() {
             <Form
               layout="vertical"
               labelCol={{
-                xs: { span: 16, offset: 4 },
+                xs: { span: 16, offset: 0 },
                 sm: { span: 12, offset: 6 },
               }}
               wrapperCol={{
-                xs: { span: 16, offset: 4 },
+                xs: { span: 16, offset: 0 },
                 sm: { span: 12, offset: 6 },
               }}
               name="outbound-form"
