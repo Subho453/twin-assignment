@@ -14,6 +14,10 @@ const routes = require("./routes");
 const { errorConverter, errorHandler } = require("./middlewares/error");
 const ApiError = require("./utils/ApiError");
 
+// Syncing Db with server
+const db = require("./models/index");
+db.sequelize.sync();
+
 const app = express();
 
 // set security HTTP headers
