@@ -81,7 +81,7 @@ function App() {
                 <Input />
               </Form.Item>
               <Form.Item
-                name="phone"
+                name="from"
                 label="Phone Number"
                 rules={[
                   {
@@ -93,7 +93,7 @@ function App() {
                 <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
               </Form.Item>
               <Form.Item
-                name="to_call"
+                name="to"
                 label="Phone Number to connect"
                 rules={[
                   {

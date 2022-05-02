@@ -13,13 +13,19 @@ const getCallHistory = async (limit, offset) => {
 const createCallHistory = async (data) => {
   try {
     const callHistory = await db.callHistory.create(data);
-    return callHistory;
+    return data;
   } catch (error) {
     throw new ApiError(httpStatus.BAD_REQUEST, error.message);
   }
 };
 
+const getCallStatus = async (data) => {
+  console.log("status update");
+  return data;
+};
+
 module.exports = {
   getCallHistory,
   createCallHistory,
+  getCallStatus,
 };

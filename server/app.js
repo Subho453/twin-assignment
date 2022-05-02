@@ -63,9 +63,6 @@ app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
 
-// convert error to ApiError, if needed
-app.use(errorConverter);
-
 // handle error
 app.use(errorHandler);
 
