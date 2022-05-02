@@ -2,15 +2,20 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import configureStore from "./store";
 
+const store = configureStore();
 const App = lazy(() => import("./App"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Suspense fallback="Loading.......">
-      <App />
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback="Loading.......">
+        <App />
+      </Suspense>
+    </Provider>
   </React.StrictMode>
 );
 
