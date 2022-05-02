@@ -1,9 +1,6 @@
 const CallHistory = (sequelize, Sequelize) =>
   sequelize.define("call_history", {
-    answered_by: {
-      type: Sequelize.STRING,
-    },
-    caller_name: {
+    sid: {
       type: Sequelize.STRING,
     },
     from: {
@@ -17,6 +14,7 @@ const CallHistory = (sequelize, Sequelize) =>
     },
     start_time: {
       type: Sequelize.DATE,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
     },
     end_time: {
       type: Sequelize.DATE,

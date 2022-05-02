@@ -16,6 +16,7 @@ const createCallHistory = catchAsync(async (req, res) => {
 
 const getCallStatus = catchAsync(async (req, res) => {
   const result = await callHistoryService.getCallStatus(req);
+  console.log(result);
   res.send(result);
 });
 

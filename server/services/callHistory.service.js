@@ -13,15 +13,26 @@ const getCallHistory = async (limit, offset) => {
 const createCallHistory = async (data) => {
   try {
     const callHistory = await db.callHistory.create(data);
-    return data;
+    return callHistory;
   } catch (error) {
     throw new ApiError(httpStatus.BAD_REQUEST, error.message);
   }
 };
 
 const getCallStatus = async (data) => {
-  console.log("status update");
-  return data;
+  const callHistoryUpdate = await db.callHistory.update(
+    {
+      duration: Number(data.body.CallDuration),
+      status: data.body.CallStatus,
+      end_time: data.body.Timestamp,
+    },
+    { where: { sid: data.body.CallSid } }
+  );
+  if (callHistoryUpdate === 1) {
+    return data.body;
+  } else {
+    throw new ApiError(httpStatus.NOT_FOUND, "Call record not found");
+  }
 };
 
 module.exports = {

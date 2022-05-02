@@ -11,7 +11,8 @@ const makeCall = async (req, res, next) => {
   try {
     const call = await client.calls.create({
       method: "GET",
-      statusCallback: "http://localhost:8000/api/call-status",
+      statusCallback:
+        "https://f76d-2402-e280-219a-22f-901e-2c64-92a6-f96.in.ngrok.io/api/call-status",
       statusCallbackMethod: "POST",
       url: "http://demo.twilio.com/docs/voice.xml",
       to: req.body.to,
